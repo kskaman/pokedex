@@ -1,7 +1,5 @@
-import { cleanInput } from './repl.js';
-
+import { cleanInput } from './repl';
 import { describe, test, expect } from 'vitest';
-
 describe.each([
     {
         input: " hello world ",
@@ -26,7 +24,6 @@ describe.each([
 ])("cleanInput($input)", ({ input, expected }) => {
     test(`Expected: ${expected}`, () => {
         const actual = cleanInput(input); // ✅ Call the function with the input
-
         expect(actual).toHaveLength(expected.length);
         for (const i in expected) {
             expect(actual[i]).toBe(expected[i]);
