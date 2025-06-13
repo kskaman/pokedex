@@ -10,14 +10,16 @@ export function startREPL(state) {
         const cmd = state.commands[commandName];
         if (cmd) {
             try {
-                cmd.callback(state.commands);
+                await cmd.callback(state);
             }
             catch (error) {
                 console.error(`Error executing command '${commandName}':`, error);
             }
         }
         else {
-            console.log("Unknown command");
+            console.log(`Unknown command: ${commandName}. Type "help" for a list of commands.`);
+            state.readline.prompt();
+            return;
         }
         state.readline.prompt();
     });

@@ -18,7 +18,8 @@ export function startREPL(state: State) {
 
         if (cmd) {
             try {
-                cmd.callback(state);
+                await cmd.callback(state);
+
             } catch (error) {
                 console.error(`Error executing command '${commandName}':`, error);
             }

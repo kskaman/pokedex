@@ -1,4 +1,4 @@
-import { cleanInput } from './repl';
+import { cleanInput } from './repl.js';
 import { describe, test, expect } from 'vitest';
 describe.each([
     {
