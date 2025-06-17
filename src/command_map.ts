@@ -1,7 +1,7 @@
 import { State } from "./state.js";
 
 export async function commandMap(state: State): Promise<void> {
-    const data = await state.pokeApi.fetchLocations(state.nextLocationsURL ?? undefined);
+    const data = await state.pokeAPI.fetchLocations(state.nextLocationsURL ?? undefined);
 
     data.results.forEach((loc) => console.log(loc.name));
 
@@ -16,7 +16,7 @@ export async function commandMapBack(state: State): Promise<void> {
         return;
     }
 
-    const data = await state.pokeApi.fetchLocations(state.prevLocationsURL);
+    const data = await state.pokeAPI.fetchLocations(state.prevLocationsURL);
 
     data.results.forEach((loc) => console.log(loc.name));
 
